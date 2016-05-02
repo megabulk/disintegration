@@ -3,72 +3,11 @@
 <head>
 	<meta charset="utf-8" />
 	<title></title>
-	<script>
-		var treeWalker, nodeArray = [], nodeArrayOriginalText = [], charCount = 0, fuckedCounter, fuckInterval = 20000;
-		var regex = /^\s+$/;
-		var chars = "0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ®†¥©ßåœ™¢§¶Æ¯ÂÇßå[]";
-
-		function init() {
-			var n;
-			treeWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-			while (n = treeWalker.nextNode()) {
-				if (n.nodeValue.match(regex)) {
-					continue;
-				}
-				nodeArray.push(n);
-				nodeArrayOriginalText.push(n.nodeValue);
-				charCount += n.nodeValue.length;
-			}
-			
-			initFuck();			
-		}
-		
-		function initFuck() {
-			fuckedCounter = 0;
-			for (var i = 0; i < nodeArray.length; i++) {
-				for (var j = 0; j < nodeArrayOriginalText[i].length; j++) {
-					setTimeout(function(i, j) {
-						return function() {
-							decay2(i, j, true);
-						}
-					}(i, j), Math.floor(Math.random() * fuckInterval));
-				}
-			}
-		}
-		
-		function decay2(nodeToFuck, charToFuck, fuckMe) {
-			$c(nodeToFuck);
-			$c(charToFuck);
-			if (fuckMe === true) {
-				fuckedCounter++;
-				if (nodeArray[nodeToFuck].nodeValue.charAt(charToFuck) == ' ') {
-					return;
-				}
-				newChar = chars.substr( Math.floor(Math.random() * chars.length - 1), 1);
-				setTimeout(function() {
-					decay2(nodeToFuck, charToFuck)
-				}, Math.floor(Math.random() * 500));
-			} else {
-				newChar = nodeArrayOriginalText[nodeToFuck].charAt(charToFuck);
-			}
-			var newStr = nodeArray[nodeToFuck].nodeValue;
-			newStr = newStr.substr(0, charToFuck) + newChar + newStr.substr(charToFuck + 1);
-			nodeArray[nodeToFuck].nodeValue = newStr;
-			if (fuckedCounter == charCount) {
-				initFuck();
-				document.querySelector("body").style.backgroundColor = "#FFF";
-				setTimeout(function() {
-					document.querySelector("body").style.backgroundColor = "#000";
-				}, 200);
-			}
-		}
-		
-		function $c(x) {
-			console.log(x);
-		}
-	</script>
+	<link rel="stylesheet" type="text/css" media="all" href="postal.css" id="mainstylesheet" />
+	<script type='text/javascript' src='js/jquery-1.12.3.min.js'></script>
+	<script type='text/javascript' src='js/fecal_fiesta.js'></script>
 </head>
-<body onload="init()" style="font-family:monospace; font-size:3.3vw; padding: 10vw;background: #000;color:#FFF">
+<body>
 <h1>Postal Child</h1>
 <h2>Chapter 15</h2>
 <p>The next two days for Whitey were of unprecedented success. He spent three hours rummaging through Jonx and Brandy's apartment finding any piece of mail and document he could find. He put them in a plastic grocery bag. He went downstairs to his moms apartment and did the same. Whitey went outside. He went to the corner, to the check cashing place. He spent ten dollars on a roll of quarters. He went back outside and crossed the street. Whitey found a pay phone.</p>
