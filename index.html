@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<script>
+		function init() {
+			setInterval(function() {
+				find_string = find_chars.substr( Math.floor(Math.random() * find_chars.length - 1), 1);
+				decay(find_string);
+			}, 100);
+		}
+
+		function decay(find_string) {
+			var treeWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+			while(treeWalker.nextNode()) {
+//					replace_string = find_chars.substr( Math.floor(Math.random() * find_chars.length - 1), 1);
+					var node = treeWalker.currentNode;
+//					re = new RegExp(find_string, "g");
+					newStr = '';
+					for (var i = 0, len = node.nodeValue.length; i < len; i++) {
+						c = node.nodeValue[i];
+						if (Math.random() > .99993) {
+							newStr += find_chars.substr( Math.floor(Math.random() * find_chars.length - 1), 1);
+							if (Math.random() > .5) {
+//								newStr += find_chars.substr( Math.floor(Math.random() * find_chars.length - 1), 1);
+							}
+						} else {
+							//if (Math.random() < .99995) {
+								newStr += c;
+							//}
+						}
+					}
+					//$c(newStr);
+					//node.nodeValue = node.nodeValue.replace(re, replace_string);
+					node.nodeValue = newStr;
+			}
+		}
+		
+		var find_chars = "0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ®†¥©∂≈ßåœ™¢§¶°—∏Æ¯ÂÇ√≈ßå’-[] ";
+	
+		function $c(x) {
+			console.log(x);
+		}
+	</script>
+</head>
+<body onload="init()" style="font-family:monospace; padding: 20px">
+<p>We spent half the day just hanging out at the house. I got bored first because I was the youngest. But I didn’t say anything. [edit]’s frumpy friend got bored next and said as much. I’m bored, she said, let’s go do something.</p>
+
+<p>We consulted [edit]’s sister. She told us to go to Incline Village, Lake Tahoe. We could get lunch and maybe swim. Everybody liked this idea. We were on the road in minutes.</p>
+
+<p>The drive up was beautiful. The lake was surrounded by trees. At one point we drove by a nude beach. We all craned our necks and joked about going there. Nobody saw anybody nude. When we got to Incline Village we had trouble parking until we realized it was a free-for-all. We parked on top of a rock, right next to a boulder.</p>
+
+<p>The history of the town was funny. It was a mining town turned into a gambling town that turned into ghost town that turned into a tourist town. There was gambling still, but it was mostly souvenir shops that sold fake gold, and cafes with names like, Hard Luck Café, and, The Bottom Scraper. We went into the Bottom Scraper for lunch.</p>
+
+<p>The restaurant had barrels for bar stools. The staff all wore hats. Prospecting hats. Which meant floppy cowboy hats. You could tell they didn’t mind. They probably made three hundred dollars a day and got drunk at night and fucked each other. It felt like Cody, Wyoming, but with more money being exchanged.</p>
+
+<p>We had to wait for a table. The place was busy. There were Elk heads on the wall that would make my dad cringe. This made me smile. I loved my dad, but fuck that asshole. Who raises a teen in Wyoming? Especially when he knew better? I mean, he left his home in Montana to come to Wyoming to do what? The same thing over again? I don’t know how it is possible to rebel against taxidermy, but I did it. I think I played a weird guitar lick in my head and frowned. I’ll show him, I thought.</p>
+
+<p>A minute or two went by. We were seated. It was a fun environment. The waiter came over and we ordered drinks. I got a root beer. The girls got bloody Mary’s.</p>
+
+<p>He brought the drinks and took our orders. I got the Beef Dip with cheese and [edit] and [edit] got the Rueben’s again. I think they decided to see what a Rueben meant locally while traveling without telling me. That, or they really liked Rueben’s. I didn’t judge them. It was a tasty sandwich.</p>
+
+<p>I nursed my root beer because it was artisanal and gross. The girls sucked the bloody Mary’s down. We didn’t talk about much. The sandwiches came pretty quick. Mine was excellent. The girls both had to use the bathroom right after eating theirs. Whether it was from the bloody Mary’s or the Rueben is beyond me, but whatever it was it didn’t sit right.</p>
+
+<p>I sat alone at the table trying to not imagine what noises they were making. This made things worse. I decided to step out for a smoke. I was standing on the wooden steps that made up the porch when they joined me. They had already paid. I said thanks and tried to give them money. They told me I got the next one. We agreed. I couldn’t stop thinking about them having diarrhea so I forced myself to think about something else. It didn’t work. All I could look at was their butts as we walked to the car. This wasn’t the worst thing. Instinctively I need to break away from these two. They were awesome, but bad news.</p>
+
+<p>We got back in the car and decided that when we got back to [edit]’s sisters house we would pack our shit back up and head to Reno. Probably spend the night in the back of the car and go to San Francisco the next day.</p>
+</body>
+</html>
+
