@@ -8,36 +8,33 @@
 			setInterval(function() {
 				find_string = find_chars.substr( Math.floor(Math.random() * find_chars.length - 1), 1);
 				decay(find_string);
-			}, 100);
+			}, 5000);
 		}
 
 		function decay(find_string) {
 			var treeWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-			while(treeWalker.nextNode()) {
-//					replace_string = find_chars.substr( Math.floor(Math.random() * find_chars.length - 1), 1);
+			while (treeWalker.nextNode()) {
 					var node = treeWalker.currentNode;
-//					re = new RegExp(find_string, "g");
-					newStr = '';
-					for (var i = 0, len = node.nodeValue.length; i < len; i++) {
-						c = node.nodeValue[i];
-						if (Math.random() > .99993) {
-							newStr += find_chars.substr( Math.floor(Math.random() * find_chars.length - 1), 1);
-							if (Math.random() > .5) {
-//								newStr += find_chars.substr( Math.floor(Math.random() * find_chars.length - 1), 1);
-							}
-						} else {
-							//if (Math.random() < .99995) {
+					if (node.nodeValue.length > 2) {//really should be testing for empty strings plus linebreaks here, not string length
+						oldStr = node.nodeValue;
+						newStr = '';
+						for (var i = 0, len = node.nodeValue.length; i < len; i++) {
+							c = node.nodeValue[i];
+							if (Math.random() > .8) {
+								newStr += find_chars.substr( Math.floor(Math.random() * find_chars.length - 1), 1);
+							} else {
 								newStr += c;
-							//}
+							}
 						}
+						setTimeout(function(n, oldStr) {
+							n.nodeValue = oldStr
+						}, 1000, node, oldStr);
+						node.nodeValue = newStr;
 					}
-					//$c(newStr);
-					//node.nodeValue = node.nodeValue.replace(re, replace_string);
-					node.nodeValue = newStr;
 			}
 		}
 		
-		var find_chars = "0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ®†¥©∂≈ßåœ™¢§¶°—∏Æ¯ÂÇ√≈ßå’-[] ";
+		var find_chars = "0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ®†¥©∂≈ßåœ™¢§¶—∏Æ¯ÂÇ√≈ßå-[] ";
 	
 		function $c(x) {
 			console.log(x);
@@ -68,4 +65,3 @@
 <p>We got back in the car and decided that when we got back to [edit]’s sisters house we would pack our shit back up and head to Reno. Probably spend the night in the back of the car and go to San Francisco the next day.</p>
 </body>
 </html>
-
