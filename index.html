@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	<title></title>
 	<script>
-		var treeWalker, nodeArray = [], nodeArrayOriginalText = [], charCount = 0, fuckedCounter = 0, fuckInterval = 5000;
+		var treeWalker, nodeArray = [], nodeArrayOriginalText = [], charCount = 0, fuckedCounter, fuckInterval = 20000;
 		var regex = /^\s+$/;
 		var chars = "0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ®†¥©ßåœ™¢§¶Æ¯ÂÇßå[]";
 
@@ -25,27 +25,29 @@
 		
 		function initFuck() {
 			fuckedCounter = 0;
-			for (var i = 0;i < nodeArray.length; i++) {
-				for (var j = 0;j < nodeArrayOriginalText[i].length; j++) {
-					setTimeout(function() {
-					decay2(i, j, true);
-					}, Math.floor(Math.random() * fuckInterval));
+			for (var i = 0; i < nodeArray.length; i++) {
+				for (var j = 0; j < nodeArrayOriginalText[i].length; j++) {
+					setTimeout(function(i, j) {
+						return function() {
+							decay2(i, j, true);
+						}
+					}(i, j), Math.floor(Math.random() * fuckInterval));
 				}
 			}
 		}
 		
 		function decay2(nodeToFuck, charToFuck, fuckMe) {
+			$c(nodeToFuck);
+			$c(charToFuck);
 			if (fuckMe === true) {
 				fuckedCounter++;
-				nodeToFuck = Math.floor(Math.random() * nodeArray.length);
-				charToFuck = Math.floor(Math.random() * nodeArray[nodeToFuck].nodeValue.length);
 				if (nodeArray[nodeToFuck].nodeValue.charAt(charToFuck) == ' ') {
 					return;
 				}
 				newChar = chars.substr( Math.floor(Math.random() * chars.length - 1), 1);
 				setTimeout(function() {
 					decay2(nodeToFuck, charToFuck)
-				}, Math.floor(Math.random() * 100) + 50);
+				}, Math.floor(Math.random() * 500));
 			} else {
 				newChar = nodeArrayOriginalText[nodeToFuck].charAt(charToFuck);
 			}
@@ -54,6 +56,10 @@
 			nodeArray[nodeToFuck].nodeValue = newStr;
 			if (fuckedCounter == charCount) {
 				initFuck();
+				document.querySelector("body").style.backgroundColor = "#FFF";
+				setTimeout(function() {
+					document.querySelector("body").style.backgroundColor = "#000";
+				}, 200);
 			}
 		}
 		
@@ -62,27 +68,41 @@
 		}
 	</script>
 </head>
-<body onload="init()" style="font-family:monospace; padding: 20px">
-<p>We spent half the day just hanging out at the house. I got bored first because I was the youngest. But I didn’t say anything. [edit]’s frumpy friend got bored next and said as much. I’m bored, she said, let’s go do something.</p>
+<body onload="init()" style="font-family:monospace; font-size:3.3vw; padding: 10vw;background: #000;color:#FFF">
+<h1>Postal Child</h1>
+<h2>Chapter 15</h2>
+<p>The next two days for Whitey were of unprecedented success. He spent three hours rummaging through Jonx and Brandy's apartment finding any piece of mail and document he could find. He put them in a plastic grocery bag. He went downstairs to his moms apartment and did the same. Whitey went outside. He went to the corner, to the check cashing place. He spent ten dollars on a roll of quarters. He went back outside and crossed the street. Whitey found a pay phone.</p>
 
-<p>We consulted [edit]’s sister. She told us to go to Incline Village, Lake Tahoe. We could get lunch and maybe swim. Everybody liked this idea. We were on the road in minutes.</p>
+<p>He had called both EBT, and the HRA. EBT had given him the password to Jonx and Brandy's card, which meant he now got $210 a month from them, he also found his mom's card in a drawer in the kitchen, which he already knew the password to, which meant he got another $210 per month.</p>
 
-<p>The drive up was beautiful. The lake was surrounded by trees. At one point we drove by a nude beach. We all craned our necks and joked about going there. Nobody saw anybody nude. When we got to Incline Village we had trouble parking until we realized it was a free-for-all. We parked on top of a rock, right next to a boulder.</p>
+<p>The HRA was a little more difficult because they give you cash, but Whitey was able to talk them into changing both the check from Brandy and Jonx, and the check addressed to his mom, into his name. He had told them on both separate occasions that his father had jumped ship, and he was now the head of the household. They were used to that, and this meant another $630 a month in cash.</p>
 
-<p>The history of the town was funny. It was a mining town turned into a gambling town that turned into ghost town that turned into a tourist town. There was gambling still, but it was mostly souvenir shops that sold fake gold, and cafes with names like, Hard Luck Café, and, The Bottom Scraper. We went into the Bottom Scraper for lunch.</p>
+<p>To top it off, rent was nonexistent. The building they lived in, well Whitey and the three dead bodies, was across the street from the project housing, so it fell under New York Housing laws that said that any house or building within two hundred feet of any said Project Housing was legally under ownership of the New York Department of Housing and therefore was mandated to follow all rules pertaining to land remitted to the New York Department of Housing.</p>
 
-<p>The restaurant had barrels for bar stools. The staff all wore hats. Prospecting hats. Which meant floppy cowboy hats. You could tell they didn’t mind. They probably made three hundred dollars a day and got drunk at night and fucked each other. It felt like Cody, Wyoming, but with more money being exchanged.</p>
+<p>Which meant: free rent for all those surrounding the projects.</p>
 
-<p>We had to wait for a table. The place was busy. There were Elk heads on the wall that would make my dad cringe. This made me smile. I loved my dad, but fuck that asshole. Who raises a teen in Wyoming? Especially when he knew better? I mean, he left his home in Montana to come to Wyoming to do what? The same thing over again? I don’t know how it is possible to rebel against taxidermy, but I did it. I think I played a weird guitar lick in my head and frowned. I’ll show him, I thought.</p>
+<p>Which meant: Whitey had $420 a month for food, $630 a month in cash, and no rent. He was the richest person in a two mile radius.</p>
 
-<p>A minute or two went by. We were seated. It was a fun environment. The waiter came over and we ordered drinks. I got a root beer. The girls got bloody Mary’s.</p>
+<p>After the phone calls he had two quarters left. He crossed the street again and went into the deli. Whitey bought two sleeves of twenty five cent gumballs. Rainbow flavored. He popped a pink one in his mouth , he put the rest in his pocket and headed back home.</p>
 
-<p>He brought the drinks and took our orders. I got the Beef Dip with cheese and [edit] and [edit] got the Rueben’s again. I think they decided to see what a Rueben meant locally while traveling without telling me. That, or they really liked Rueben’s. I didn’t judge them. It was a tasty sandwich.</p>
+<p>When Whitey opened the door there were now four pigeons in the apartment. He smiled and blew a bubble. He shut the door behind himself and went to the kitchen. He took two slices of bread out of the bag and walked over to the couch. The birds were standing on the coffee table. He tore the bread into pieces. Whitey put it on the plate. He sat down on the couch. Before long he was asleep.
+The next morning Whitey woke up to the pigeons roosting on his chest. All four. He still had the bubble gum in his mouth. He wanted to get rid of it, but he didn't want to wake the birds. He swallowed it and went back to sleep.</p>
 
-<p>I nursed my root beer because it was artisanal and gross. The girls sucked the bloody Mary’s down. We didn’t talk about much. The sandwiches came pretty quick. Mine was excellent. The girls both had to use the bathroom right after eating theirs. Whether it was from the bloody Mary’s or the Rueben is beyond me, but whatever it was it didn’t sit right.</p>
+<p>An hour later Whitey woke up and the pigeons were gone. He stood up and stretched. He went into the kitchen and made himself a cheese sandwich. As he was eating his sandwich he looked down and noticed he was covered in shit. This made him aware that he only had a heel of bread left. He thought about this. I need more shirts and more bread, he thought. Whitey walked quickly towards the front door. He stopped. Something was wrong. Somethings wrong, he thought. He couldn't figure out what it was. He looked around and tried to process. He licked his teeth. His teeth were covered in scum. That's it! He thought. He had a flash of his mother yelling at him for not brushing his teeth. He went to the bathroom to brush his teeth.</p>
 
-<p>I sat alone at the table trying to not imagine what noises they were making. This made things worse. I decided to step out for a smoke. I was standing on the wooden steps that made up the porch when they joined me. They had already paid. I said thanks and tried to give them money. They told me I got the next one. We agreed. I couldn’t stop thinking about them having diarrhea so I forced myself to think about something else. It didn’t work. All I could look at was their butts as we walked to the car. This wasn’t the worst thing. Instinctively I need to break away from these two. They were awesome, but bad news.</p>
+<p>As Whitey brushed his teeth he looked in the mirror. He could see the bird shit on his shirt. He spit into the sink. He took his shirt off and turned it inside out. He put it back on. He looked into the mirror again. He looked ok as far as he could tell. He went outside.</p>
 
-<p>We got back in the car and decided that when we got back to [edit]’s sisters house we would pack our shit back up and head to Reno. Probably spend the night in the back of the car and go to San Francisco the next day.</p>
+<p>The super market was five blocks away. Whitey took the shortcut through the projects. He ran into one of the pigeons on the way. Whitey said hi. She road on his shoulder for a while. She rode on his shoulder until she shit on him. Whitey jerked his shoulder. She flew up. He wiped the shit off. Whitey wasn't pissed, but he said sternly:</p>
+
+<p>“You guys can't shit on me! We gotta agree! We gotta agree! We gotta agree!” The pigeon flew away feeling guilty.</p>
+
+<p>When Whitey got to the super market he was feeling like a jerk. He didn't mean to yell, but he had. He took a cart and pushed it down the aisles. He felt foolish. He didn't want to hurt his friends feelings. He loaded the cart with eighteen bags of bread, one three pound chunk of cheese, as well as a gallon of mayonaise.</p>
+
+<p>When he checked out he paid with his moms EBT card. Fifty three dollars and fifty seven cents. The cashier couldn't understand what such a young kid needed with so much bread, but she said nothing, and Whitey looked like a bloated airplane as he walked out of the store.</p>
+
+<p>The cheese and mayonaise made him stop every thirty steps. He was exhausted when he got home.</p>
+
+<p>The walk up the stairs was too much. He dropped everything by the entrance and took it up by parcel. It took six trips. He stacked it all by front door to the apartment. When he opened the door to the apartment there might as well have been a surprise party. There were birds everywhere! Hundreds of them! Whitey couldn't have been happier! He didn't know what to do, so he grabbed a bag of bread and ripped it open! He threw the crumbs up in the air and spun around! The pigeon that had hurt his feelings flew over onto his shoulder. Whitey said he was sorry, the pigeon rubbed his beak on Whitey's face. Whitey smiled and drug the rest of the groceries into the apartment and slammed the door.</p>
+
 </body>
 </html>
