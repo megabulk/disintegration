@@ -4,38 +4,59 @@
 	<meta charset="utf-8" />
 	<title></title>
 	<script>
-		function init() {
-			setInterval(function() {
-				find_string = find_chars.substr( Math.floor(Math.random() * find_chars.length - 1), 1);
-				decay(find_string);
-			}, 5000);
-		}
+		var treeWalker, nodeArray = [], nodeArrayOriginalText = [], charCount = 0, fuckedCounter = 0, fuckInterval = 5000;
+		var regex = /^\s+$/;
+		var chars = "0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ®†¥©ßåœ™¢§¶Æ¯ÂÇßå[]";
 
-		function decay(find_string) {
-			var treeWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-			while (treeWalker.nextNode()) {
-					var node = treeWalker.currentNode;
-					if (node.nodeValue.length > 2) {//really should be testing for empty strings plus linebreaks here, not string length
-						oldStr = node.nodeValue;
-						newStr = '';
-						for (var i = 0, len = node.nodeValue.length; i < len; i++) {
-							c = node.nodeValue[i];
-							if (Math.random() > .8) {
-								newStr += find_chars.substr( Math.floor(Math.random() * find_chars.length - 1), 1);
-							} else {
-								newStr += c;
-							}
-						}
-						setTimeout(function(n, oldStr) {
-							n.nodeValue = oldStr
-						}, 1000, node, oldStr);
-						node.nodeValue = newStr;
-					}
+		function init() {
+			var n;
+			treeWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+			while (n = treeWalker.nextNode()) {
+				if (n.nodeValue.match(regex)) {
+					continue;
+				}
+				nodeArray.push(n);
+				nodeArrayOriginalText.push(n.nodeValue);
+				charCount += n.nodeValue.length;
+			}
+			
+			initFuck();			
+		}
+		
+		function initFuck() {
+			fuckedCounter = 0;
+			for (var i = 0;i < nodeArray.length; i++) {
+				for (var j = 0;j < nodeArrayOriginalText[i].length; j++) {
+					setTimeout(function() {
+					decay2(i, j, true);
+					}, Math.floor(Math.random() * fuckInterval));
+				}
 			}
 		}
 		
-		var find_chars = "0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ®†¥©∂≈ßåœ™¢§¶—∏Æ¯ÂÇ√≈ßå-[] ";
-	
+		function decay2(nodeToFuck, charToFuck, fuckMe) {
+			if (fuckMe === true) {
+				fuckedCounter++;
+				nodeToFuck = Math.floor(Math.random() * nodeArray.length);
+				charToFuck = Math.floor(Math.random() * nodeArray[nodeToFuck].nodeValue.length);
+				if (nodeArray[nodeToFuck].nodeValue.charAt(charToFuck) == ' ') {
+					return;
+				}
+				newChar = chars.substr( Math.floor(Math.random() * chars.length - 1), 1);
+				setTimeout(function() {
+					decay2(nodeToFuck, charToFuck)
+				}, Math.floor(Math.random() * 100) + 50);
+			} else {
+				newChar = nodeArrayOriginalText[nodeToFuck].charAt(charToFuck);
+			}
+			var newStr = nodeArray[nodeToFuck].nodeValue;
+			newStr = newStr.substr(0, charToFuck) + newChar + newStr.substr(charToFuck + 1);
+			nodeArray[nodeToFuck].nodeValue = newStr;
+			if (fuckedCounter == charCount) {
+				initFuck();
+			}
+		}
+		
 		function $c(x) {
 			console.log(x);
 		}
