@@ -8,40 +8,69 @@
 	<script type='text/javascript' src='js/fecal_fiesta.js'></script>
 </head>
 <body>
+<div id="content">
 <h1>Postal Child</h1>
-<h2>Chapter 15</h2>
-<p>The next two days for Whitey were of unprecedented success. He spent three hours rummaging through Jonx and Brandy's apartment finding any piece of mail and document he could find. He put them in a plastic grocery bag. He went downstairs to his moms apartment and did the same. Whitey went outside. He went to the corner, to the check cashing place. He spent ten dollars on a roll of quarters. He went back outside and crossed the street. Whitey found a pay phone.</p>
+<h2>Chapter 10</h2>
+<p>What woke Whitey was hunger. He didn't know how much time had passed. He sat up and looked around. It was still dark out. He stood up and went into the kitchen. He checked the fridge and cabinets again. Nothing doing. The pigeons were back. He could hear them. He went into the bathroom. There was five of them now. Five Pigeons. Whitey held his hand out for all of them to smell. He wasn't sure birds could smell, but in his mind, that's what they were doing. One of the pigeons dropped something on the window sill. It was orange and looked like carrot. The bird nudged it towards Whitey with it's beak. Whitey picked it up. It was a carrot. He ate it.</p>
 
-<p>He had called both EBT, and the HRA. EBT had given him the password to Jonx and Brandy's card, which meant he now got $210 a month from them, he also found his mom's card in a drawer in the kitchen, which he already knew the password to, which meant he got another $210 per month.</p>
+<p>Whitey stood there for a while talking to the birds. They wanted to come inside, but he couldn't let them. Eventually they had to leave. Whitey said smell you later, something he had heard back when his mom was alive. He missed his mom.</p>
 
-<p>The HRA was a little more difficult because they give you cash, but Whitey was able to talk them into changing both the check from Brandy and Jonx, and the check addressed to his mom, into his name. He had told them on both separate occasions that his father had jumped ship, and he was now the head of the household. They were used to that, and this meant another $630 a month in cash.</p>
+<p>As Whitey was leaving the bathroom he looked at the sink. There was two toothbrushes. They were vertical in their porcelain holsters. Whitey liked holsters. He thought everything that had a proper place to live lived in a holster. He felt like his pockets were holsters for things he found on the ground. Wallets were holsters for money. Bags were holsters for things you bought, or needed to move from place to place. He even thought a bed was a holster for sleep.</p>
 
-<p>To top it off, rent was nonexistent. The building they lived in, well Whitey and the three dead bodies, was across the street from the project housing, so it fell under New York Housing laws that said that any house or building within two hundred feet of any said Project Housing was legally under ownership of the New York Department of Housing and therefore was mandated to follow all rules pertaining to land remitted to the New York Department of Housing.</p>
+<p>He stopped and stared at the toothbrushes. One was scrubbed down to the base, it was splayed and dirty looking. The other seemed like it was in working order. He figured the gross one was Jonx' and the other was Brandy's. He wanted to brush his teeth. It had been forever since he had. His teeth were so dirty he could scrape film from them with his fingernails. His fingernails were long too. He wanted to cut them, but by thinking this he realized he should chew them off and eat them. They must have nutrients he thought. Later, he thought.</p>
 
-<p>Which meant: free rent for all those surrounding the projects.</p>
+<p>Whitey couldn't decide what to do. If he used Jonx' toothbrush Jonx would never notice because he was a disgusting idiot, however, if he used Brandy's she might notice and there would be hell to pay. He was making this decision when he heard a key in the door. He ran back to his corner and laid down.</p>
 
-<p>Which meant: Whitey had $420 a month for food, $630 a month in cash, and no rent. He was the richest person in a two mile radius.</p>
+<p>Jonx came in first. He was carrying two bags. One was a liquor store bag with a bottle in it. The other was a brown paper bag. He put the bags on the coffee table and sat down on the couch. The paper bag was greasy and smelled like fried chicken. Whitey sat up despite his reluctance. The smell made him act like a dog. He was that hungry.</p>
 
-<p>After the phone calls he had two quarters left. He crossed the street again and went into the deli. Whitey bought two sleeves of twenty five cent gumballs. Rainbow flavored. He popped a pink one in his mouth , he put the rest in his pocket and headed back home.</p>
+<p>Jonx looked angry. He was sweating and red. He looked slightly ill. Brandy sat down next him. She opened the paper bag and took out a piece of chicken. She tried to hand it to Jonx. He refused. He said:
+“Fuck off, go get some glasses.”</p>
 
-<p>When Whitey opened the door there were now four pigeons in the apartment. He smiled and blew a bubble. He shut the door behind himself and went to the kitchen. He took two slices of bread out of the bag and walked over to the couch. The birds were standing on the coffee table. He tore the bread into pieces. Whitey put it on the plate. He sat down on the couch. Before long he was asleep.
-The next morning Whitey woke up to the pigeons roosting on his chest. All four. He still had the bubble gum in his mouth. He wanted to get rid of it, but he didn't want to wake the birds. He swallowed it and went back to sleep.</p>
+<p>Brandy put the piece of chicken on the table and stood up. She went to the kitchen to get some glasses. When she came back she put them on the table and sat down. Jonx took the glasses and moved them closer to himself. He took the bottle of whiskey from the bag and threw the bag on the floor. He opened the bottle and poured himself a drink. He looked up at Brandy as he was doing this. She was eating a piece of chicken. She nodded. He poured her a drink.</p>
 
-<p>An hour later Whitey woke up and the pigeons were gone. He stood up and stretched. He went into the kitchen and made himself a cheese sandwich. As he was eating his sandwich he looked down and noticed he was covered in shit. This made him aware that he only had a heel of bread left. He thought about this. I need more shirts and more bread, he thought. Whitey walked quickly towards the front door. He stopped. Something was wrong. Somethings wrong, he thought. He couldn't figure out what it was. He looked around and tried to process. He licked his teeth. His teeth were covered in scum. That's it! He thought. He had a flash of his mother yelling at him for not brushing his teeth. He went to the bathroom to brush his teeth.</p>
+<p>They sat in silence. Jonx sipping his whiskey, Brandy quietly eating her chicken, and Whitey sitting up, mouth drooling, staring at the chicken, smelling its odors, his mind was eating it with her, it was a breast, he could tell it was dry, she made a face that said so.</p>
 
-<p>As Whitey brushed his teeth he looked in the mirror. He could see the bird shit on his shirt. He spit into the sink. He took his shirt off and turned it inside out. He put it back on. He looked into the mirror again. He looked ok as far as he could tell. He went outside.</p>
+<p>Whitey was planning an attack, the same way he did with the shower, he was gonna run over and grab the chicken and eat it while Jonx beat him, but instead Jonx broke the silence by saying:</p>
 
-<p>The super market was five blocks away. Whitey took the shortcut through the projects. He ran into one of the pigeons on the way. Whitey said hi. She road on his shoulder for a while. She rode on his shoulder until she shit on him. Whitey jerked his shoulder. She flew up. He wiped the shit off. Whitey wasn't pissed, but he said sternly:</p>
+<p>“Them drugs at bitch?”</p>
 
-<p>“You guys can't shit on me! We gotta agree! We gotta agree! We gotta agree!” The pigeon flew away feeling guilty.</p>
+<p>Brandy elbowed her bag towards Jonx. It was next to her. On the couch. Jonx rifled through it. He took out what looked like a bunch of baking soda in the corner of a cheap sandwich bag tied off with a knot. This made Whitey think of baking. Of the tools bakers use to decorate cakes. Jonx tore the bag open with his teeth and dump the whole thing on the table. He took a card from Brandy's bag and made two massive lines. He took a bill from his pocket and rolled it into a tube. He snorted both lines. He made two more massive lines. He handed the bill to Brandy. She snorted one of the lines. She handed the bill back to Jonx. He snorted the other line. Brandy said:</p>
 
-<p>When Whitey got to the super market he was feeling like a jerk. He didn't mean to yell, but he had. He took a cart and pushed it down the aisles. He felt foolish. He didn't want to hurt his friends feelings. He loaded the cart with eighteen bags of bread, one three pound chunk of cheese, as well as a gallon of mayonaise.</p>
+<p>“Slow down baby, this is the good shit.”<br>
+“Fuck all, this shit is bunk.”<br>
+“Just sayin.”<br>
+“Say it silent then.”</p>
 
-<p>When he checked out he paid with his moms EBT card. Fifty three dollars and fifty seven cents. The cashier couldn't understand what such a young kid needed with so much bread, but she said nothing, and Whitey looked like a bloated airplane as he walked out of the store.</p>
+<p>Jonx made two more lines and took a drink of whiskey. He poured himself some more whiskey. He looked at the lines. He looked at Brandy. Her face looked like passive panic. She wasn't eating her chicken anymore. Whitey was watching the chicken breast in her hand. She was squeezing it. The meat was oozing through her fingers. He wanted to run over and bite it off.</p>
 
-<p>The cheese and mayonaise made him stop every thirty steps. He was exhausted when he got home.</p>
+<p>Jonx bent down and snorted both the lines. He sat back up. He took a drink of whiskey and stood up. He looked over at Whitey and smiled. Jonx said:</p>
 
-<p>The walk up the stairs was too much. He dropped everything by the entrance and took it up by parcel. It took six trips. He stacked it all by front door to the apartment. When he opened the door to the apartment there might as well have been a surprise party. There were birds everywhere! Hundreds of them! Whitey couldn't have been happier! He didn't know what to do, so he grabbed a bag of bread and ripped it open! He threw the crumbs up in the air and spun around! The pigeon that had hurt his feelings flew over onto his shoulder. Whitey said he was sorry, the pigeon rubbed his beak on Whitey's face. Whitey smiled and drug the rest of the groceries into the apartment and slammed the door.</p>
+<p>“Why don't you ever talk to me? Aren't we friends?”</p>
 
+<p>Whitey looked confused. Jonx turned around and asked Brandy the same question. Brandy didn't answer. Bronx said:</p>
+
+<p>“Fuck you both, I love you guys, but you betrayed me.”</p>
+
+<p>Jonx took this moment to fall to the floor. He knocked the coffee table over. The whiskey and drugs and fried chicken spilled towards the television. Brandy ran over to him. Whitey scooted over and grabbed a piece of chicken. He scooted back. He was eating the chicken as Brandy had Jonx' shirt in her hands and was shaking him. She was screaming:</p>
+
+<p>“Wake up! Jonx! You ok! Jonx!”</p>
+
+<p>Jonx was not ok. Jonx was dead. Brandy was screaming. She was trying to do CPR, but she didn't know how.</p>
+
+<p>Whitey was eating fried chicken and watching. There was another piece at Brandy's feet he was looking to eat next. He decided it was smart to just grab it now. He slid over and grabbed it. He slid back and put it under his blanket. She turned around and yelled at him:</p>
+
+<p>“Help me!”</p>
+
+<p>Whitey crawled over. Brandy was beating on Jonx' chest. She yelled:</p>
+
+<p>“Help me!” She looked at Whitey. He had no clue.<br>
+“How?”<br>
+“CPR!”<br>
+“I don't know CPR.”</p>
+
+<p>Whitey pretended to push on Jonx' chest with Brandy until Brandy gave up. She collapsed on Jonx' body and cried. Jonx was dead. Whitey waited until he knew Brandy wouldn't notice. He slid back to his bed and took the piece of chicken he had hid from it's hiding place. He sat there eating the fried chicken watching Brandy cry.</p>
+
+<p>Jonx was dead.</p>
+</div>
 </body>
 </html>
