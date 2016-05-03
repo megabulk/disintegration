@@ -8,6 +8,8 @@
 	<script type='text/javascript' src='js/fecal_fiesta.js'></script>
 </head>
 <body>
+<div>This text is left undisturbed.</div>
+<!--The JS runs through everytihng in #content-->
 <div id="content">
 <h1>Postal Child</h1>
 <h2>Chapter 10</h2>

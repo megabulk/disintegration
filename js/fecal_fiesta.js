@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
 
 	function init() {
 		var n;
-		treeWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+		treeWalker = document.createTreeWalker(document.getElementById("content"), NodeFilter.SHOW_TEXT);
 		while (n = treeWalker.nextNode()) {
 			if (n.nodeValue.match(regex)) {
 				continue;
@@ -19,6 +19,8 @@ jQuery(document).ready(function($) {
 			nodeArrayOriginalTextPure.push(n.nodeValue);
 			charCount += n.nodeValue.length;
 		}
+		
+		$c(nodeArrayOriginalText);
 				
 		fuckRate = charCount / 3 * secondsPerLetter * 1000;
 		
