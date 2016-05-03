@@ -1,4 +1,4 @@
-var treeWalker, nodeArray = [], nodeArrayOriginalText = [], charCount = 0, fuckedCounter, secondsPerLetter = .012, fuckRate, timeToStayFucked = 75, degreeOfFuckedness = 1;
+var treeWalker, nodeArray = [], nodeArrayOriginalText = [], nodeArrayOriginalTextPure = [], charCount = 0, fuckedCounter, secondsPerLetter = .012, fuckRate, timeToStayFucked = 100, charsReplaced = 0, degreeOfFuckedness = degreeOfBkgFuckedness = 1;
 var regex = /^\s+$/;
 var chars = "0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ®†¥©ßåœ™¢§¶Æ¯ÂÇßå[]";
 
@@ -16,12 +16,13 @@ jQuery(document).ready(function($) {
 			}
 			nodeArray.push(n);
 			nodeArrayOriginalText.push(n.nodeValue);
+			nodeArrayOriginalTextPure.push(n.nodeValue);
 			charCount += n.nodeValue.length;
 		}
-		
+				
 		fuckRate = charCount / 3 * secondsPerLetter * 1000;
 		
-		setTimeout(initTextFuck, fuckRate/2);
+		setTimeout(initTextFuck, fuckRate / 2);
 	}
 	
 	function initTextFuck() {
@@ -52,6 +53,10 @@ jQuery(document).ready(function($) {
 			//permanent decay!
 			if (Math.random() > .9987 / (degreeOfFuckedness/2)) {
 				nodeArrayOriginalText[nodeToFuck] = replaceChar(nodeArrayOriginalText[nodeToFuck], rndChar, charToFuck);
+				charsReplaced++;
+				if (charsReplaced * 2.5 > charCount) {
+					reset();
+				}
 			}
 			newChar = nodeArrayOriginalText[nodeToFuck].charAt(charToFuck);
 		}
@@ -63,6 +68,13 @@ jQuery(document).ready(function($) {
 		}
 	}
 	
+	function reset() {
+		nodeArrayOriginalText = JSON.parse(JSON.stringify(nodeArrayOriginalTextPure));;
+		degreeOfFuckedness = 1;
+		charsReplaced = 0;
+		timeToStayFucked = 200;
+	}
+	
 	function replaceChar(str, newChar, index) {
 		newStr = str.substr(0, index) + newChar + str.substr(index + 1);
 		return newStr;
@@ -72,20 +84,20 @@ jQuery(document).ready(function($) {
 		setInterval(function() {
 			dust.makeDust();
 		}, 100);
-	}, fuckRate / 2);
+	}, fuckRate * 1.2);
 	
 	function increaseTheFuck() {
 		initTextFuck();
 		degreeOfFuckedness *= 1.1;
+		degreeOfBkgFuckedness *= 1.1;
 		if (timeToStayFucked < fuckRate - 2000) {
 			timeToStayFucked *= degreeOfFuckedness;
 		}
-		dust.dustOpacity = Math.min(dust.dustOpacity * degreeOfFuckedness, 1);
-		var bkgIntensity = Math.min(Math.floor(Math.random() * 255 * (degreeOfFuckedness - 1)), 255);
-		//bkgIntensity = 255;
-		$('body').css({transition: 'none', backgroundColor: 'rgb(' + bkgIntensity + ',0,0)'});
+		dust.dustOpacity = Math.min(dust.dustOpacity * degreeOfBkgFuckedness, 1);
+		var bkgIntensity = Math.min(Math.floor(Math.random() * 255 * (degreeOfBkgFuckedness - 1)), 255);
+		$('body').css({transition: 'none', backgroundColor: 'rgb(' + bkgIntensity + ',0,0)', color: 'rgb(0,255,255)'});
 		setTimeout(function() {
-			$('body').css({transition: 'background-color ' + (degreeOfFuckedness * 2) + 's', backgroundColor: '#000'});
+			$('body').css({transition: 'background-color ' + (degreeOfFuckedness * 2) + 's, color ' + (degreeOfFuckedness / 30) + 's', backgroundColor: '#000', color: '#FFF'});
 		}, timeToStayFucked * 2);
 	}
 	
@@ -101,14 +113,14 @@ function Everfalling(options) {
 	this.dustOpacity = .3;
 	
 	this.makeDust = function() {
-		var w = h = Math.floor(Math.random() * 10 * degreeOfFuckedness) + 1;
+		var w = h = Math.floor(Math.random() * 10 * degreeOfBkgFuckedness) + 1;
 		var x = Math.floor(Math.random() * 100);
 		var y = Math.floor((Math.random() * ($(document).height() + ($(window).height() / 2)) / 10));
 		y = Math.min(y, this.docH - y);
 		if (w + x > 100) {
 			w = 100 - x;
 		}
-		var lifespan = Math.floor(Math.random() * 10 * degreeOfFuckedness) + 1;
+		var lifespan = Math.floor(Math.random() * 10 * degreeOfBkgFuckedness) + 1;
 		var opacity = Math.random() * this.dustOpacity;
 		var d = new this.Dust({x:x, y:y, w:w, h:h, lifespan:lifespan, opacity:opacity}, this.self);
 		this.dustBowl.push(d);
