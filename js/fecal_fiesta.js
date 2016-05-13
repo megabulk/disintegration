@@ -1,4 +1,4 @@
-var treeWalker, nodeArray = [], nodeArrayOriginalText = [], nodeArrayOriginalTextPure = [], charCount = 0, fuckedCounter, secondsPerLetter = .001, fuckRate, timeToStayFucked = 100, charsReplaced = 0, degreeOfFuckedness = degreeOfBkgFuckedness = 1, docH;
+var treeWalker, nodeArray = [], nodeArrayOriginalText = [], nodeArrayOriginalTextPure = [], charCount = 0, fuckedCounter, secondsPerLetter = .01, fuckRate, timeToStayFucked = 100, charsReplaced = 0, degreeOfFuckedness = degreeOfBkgFuckedness = 1, docH;
 var regex = /^\s+$/;
 var chars = "0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ®†¥©ßåœ™¢§¶Æ¯ÂÇßå[]";
 
