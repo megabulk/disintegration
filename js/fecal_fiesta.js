@@ -1,4 +1,4 @@
-var treeWalker, nodeArray = [], nodeArrayOriginalText = [], nodeArrayOriginalTextPure = [], charCount = 0, fuckedCounter, secondsPerLetter = .01, fuckRate, timeToStayFucked = 100, charsReplaced = 0, degreeOfFuckedness = degreeOfBkgFuckedness = 1, docH;
+var treeWalker, nodeArray = [], nodeArrayOriginalText = [], nodeArrayOriginalTextPure = [], charCount = 0, fuckedCounter, secondsPerLetter = .001, fuckRate, timeToStayFucked = 100, charsReplaced = 0, degreeOfFuckedness = degreeOfBkgFuckedness = 1, docH;
 var regex = /^\s+$/;
 var chars = "0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ®†¥©ßåœ™¢§¶Æ¯ÂÇßå[]";
 
@@ -99,9 +99,12 @@ jQuery(document).ready(function($) {
 		}
 		dust.dustOpacity = Math.min(dust.dustOpacity * degreeOfBkgFuckedness, 1);
 		var bkgIntensity = Math.min(Math.floor(Math.random() * 255 * (degreeOfBkgFuckedness - 1)), 255);
-		$('body').css({transition: 'none', backgroundColor: 'rgb(' + bkgIntensity + ',0,0)', color: 'rgb(0,255,255)'});
+		var r = Math.round(Math.random()) * 255;
+		var g = Math.round(Math.random()) * 255;
+		var b = Math.round(Math.random()) * 255;
+		$('body').css({transition: 'none', backgroundColor: 'rgb(' + bkgIntensity + ',0,0)', color: 'rgb(' + r + ',' + g + ',' + b + ')'});
 		setTimeout(function() {
-			$('body').css({transition: 'background-color ' + (degreeOfFuckedness * 2) + 's, color ' + (degreeOfFuckedness / 30) + 's', backgroundColor: '#000', color: '#FFF'});
+			$('body').css({transition: 'background-color ' + (degreeOfFuckedness * 2) + 's, color ' + (degreeOfFuckedness / 10) + 's', backgroundColor: '#000', color: '#FFF'});
 		}, timeToStayFucked * 2);
 	}
 
