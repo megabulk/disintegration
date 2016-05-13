@@ -1,9 +1,13 @@
-var treeWalker, nodeArray = [], nodeArrayOriginalText = [], nodeArrayOriginalTextPure = [], charCount = 0, fuckedCounter, secondsPerLetter = .012, fuckRate, timeToStayFucked = 100, charsReplaced = 0, degreeOfFuckedness = degreeOfBkgFuckedness = 1;
+var treeWalker, nodeArray = [], nodeArrayOriginalText = [], nodeArrayOriginalTextPure = [], charCount = 0, fuckedCounter, secondsPerLetter = .01, fuckRate, timeToStayFucked = 100, charsReplaced = 0, degreeOfFuckedness = degreeOfBkgFuckedness = 1, docH;
 var regex = /^\s+$/;
 var chars = "0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ®†¥©ßåœ™¢§¶Æ¯ÂÇßå[]";
 
 jQuery(document).ready(function($) {
+
+	docH = $(document).height();
+
 	var dust = new Everfalling();
+	
 
 	init();
 
@@ -19,8 +23,6 @@ jQuery(document).ready(function($) {
 			nodeArrayOriginalTextPure.push(n.nodeValue);
 			charCount += n.nodeValue.length;
 		}
-		
-		$c(nodeArrayOriginalText);
 				
 		fuckRate = charCount / 3 * secondsPerLetter * 1000;
 		
@@ -102,7 +104,7 @@ jQuery(document).ready(function($) {
 			$('body').css({transition: 'background-color ' + (degreeOfFuckedness * 2) + 's, color ' + (degreeOfFuckedness / 30) + 's', backgroundColor: '#000', color: '#FFF'});
 		}, timeToStayFucked * 2);
 	}
-	
+
 });//end onload
 
 
@@ -110,18 +112,13 @@ jQuery(document).ready(function($) {
 function Everfalling(options) {
 	this.dustBowl = [];
 	this.self = this;
-	this.docH = $(document).height();
 	this.winW = $(window).width();
 	this.dustOpacity = .3;
 	
 	this.makeDust = function() {
-		var w = h = Math.floor(Math.random() * 10 * degreeOfBkgFuckedness) + 1;
-		var x = Math.floor(Math.random() * 100);
-		var y = Math.floor((Math.random() * ($(document).height() + ($(window).height() / 2)) / 10));
-		y = Math.min(y, this.docH - y);
-		if (w + x > 100) {
-			w = 100 - x;
-		}
+		var w = h = Math.min(100, Math.floor(Math.random() * 10 * degreeOfBkgFuckedness) + 1);
+		var x = Math.floor(Math.random() * (100 - w));
+		var y = Math.floor(Math.random() * (docH / this.winW * 100) - h);
 		var lifespan = Math.floor(Math.random() * 10 * degreeOfBkgFuckedness) + 1;
 		var opacity = Math.random() * this.dustOpacity;
 		var d = new this.Dust({x:x, y:y, w:w, h:h, lifespan:lifespan, opacity:opacity}, this.self);
@@ -129,7 +126,7 @@ function Everfalling(options) {
 	}
 	
 	$(window).resize($.proxy(function() {
-		this.docH = $(document).height();
+		//docH = $(document).height();
 		this.winW = $(window).width();
 	}, this.self));
 	
@@ -150,7 +147,7 @@ function Everfalling(options) {
 			}(this));
 		}
 		
-		this.icons = ['dustmote.svg', 'child.svg', 'mickey.svg'];
+		this.icons = ['dustmote.svg', 'child.svg', 'mickey.svg', 'widget.svg', 'spiral.svg'];
 
 		this.settings = {
 			x: 0,
@@ -169,7 +166,7 @@ function Everfalling(options) {
 	
 		this.div = $("<div>", {class: "dust"}).css({
 			left: this.settings.x + 'vw',
-			top: this.settings.y + 'vh',
+			top: this.settings.y + 'vw',
 			width: this.settings.w + 'vw',
 			height: this.settings.h + 'vw',
 			opacity: this.settings.opacity,
@@ -179,7 +176,16 @@ function Everfalling(options) {
 
 		setTimeout(this.settings.death.bind(this), this.settings.lifespan * 1000);
 	}
+
+	this.px_to_vw = function(px) {
+		return px / $(window).width() * 100;
+	}
+
+	this.vw_to_px = function(vw) {
+		return vw / 100 * $(window).width();
+	}
 }
+
 
 function $c(x) {
 	console.log(x);
