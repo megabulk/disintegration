@@ -1,4 +1,4 @@
-var treeWalker, nodeArray = [], nodeArrayOriginalText = [], nodeArrayOriginalTextPure = [], charCount = 0, fuckedCounter, secondsPerLetter = .01, fuckRate, timeToStayFucked = 100, charsReplaced = 0, degreeOfFuckedness = degreeOfBkgFuckedness = 1, scrollPercent = 0;
+var treeWalker, nodeArray = [], nodeArrayOriginalText = [], nodeArrayOriginalTextPure = [], nodeArrayCharCounts = [], charCount = 0, fuckedCounter, secondsPerLetter = .01, fuckRate, timeToStayFucked = 100, charsReplaced = 0, degreeOfFuckedness = degreeOfBkgFuckedness = 1, scrollPercent = 0;
 var regex = /^\s+$/;
 var chars = "0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ®†¥©ßåœ™¢§¶Æ¯ÂÇßå[]";
 
@@ -18,6 +18,7 @@ jQuery(document).ready(function($) {
 			nodeArray.push(n);
 			nodeArrayOriginalText.push(n.nodeValue);
 			nodeArrayOriginalTextPure.push(n.nodeValue);
+			nodeArrayCharCounts.push(charCount);
 			charCount += n.nodeValue.length;
 		}
 				
@@ -43,6 +44,8 @@ jQuery(document).ready(function($) {
 	
 	function fuck_unfuck(nodeToFuck, charToFuck, fuckMe) {
 		var rndChar = chars.substr( rand(chars.length - 1), 1);
+		var charPos = nodeArrayCharCounts[nodeToFuck] + charToFuck;
+		var charPercent = charPos / charCount;
 		if (fuckMe === true) {
 			fuckedCounter++;
 			if (nodeArray[nodeToFuck].nodeValue.charAt(charToFuck) == ' ') {
@@ -51,7 +54,7 @@ jQuery(document).ready(function($) {
 			newChar = rndChar;
 			setTimeout(function() {
 				fuck_unfuck(nodeToFuck, charToFuck)
-			}, timeToStayFucked * (scrollPercent + 1));
+			}, timeToStayFucked * (charPercent + 1));
 		} else {
 			//permanent decay!
 			if (Math.random() > .9987 / (degreeOfFuckedness/2)) {
