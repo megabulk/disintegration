@@ -1,4 +1,4 @@
-var treeWalker, nodeArray = [], nodeArrayOriginalText = [], nodeArrayOriginalTextPure = [], charCount = 0, fuckedCounter, secondsPerLetter = .01, fuckRate, timeToStayFucked = 100, charsReplaced = 0, degreeOfFuckedness = degreeOfBkgFuckedness = 1;
+var treeWalker, nodeArray = [], nodeArrayOriginalText = [], nodeArrayOriginalTextPure = [], charCount = 0, fuckedCounter, secondsPerLetter = .01, fuckRate, timeToStayFucked = 100, charsReplaced = 0, degreeOfFuckedness = degreeOfBkgFuckedness = 1, scrollPercent;
 var regex = /^\s+$/;
 var chars = "0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ®†¥©ßåœ™¢§¶Æ¯ÂÇßå[]";
 
@@ -22,6 +22,8 @@ jQuery(document).ready(function($) {
 		}
 				
 		fuckRate = charCount / 3 * secondsPerLetter * 1000;
+		
+		$(window).trigger('scroll');
 		
 		setTimeout(initTextFuck, fuckRate / 2);
 	}
@@ -49,7 +51,7 @@ jQuery(document).ready(function($) {
 			newChar = rndChar;
 			setTimeout(function() {
 				fuck_unfuck(nodeToFuck, charToFuck)
-			}, timeToStayFucked);
+			}, timeToStayFucked * (scrollPercent + 1));
 		} else {
 			//permanent decay!
 			if (Math.random() > .9987 / (degreeOfFuckedness/2)) {
@@ -70,10 +72,10 @@ jQuery(document).ready(function($) {
 	}
 	
 	function reset() {
-		nodeArrayOriginalText = JSON.parse(JSON.stringify(nodeArrayOriginalTextPure));;
+		nodeArrayOriginalText = JSON.parse(JSON.stringify(nodeArrayOriginalTextPure));
 		degreeOfFuckedness = 1;
 		charsReplaced = 0;
-		timeToStayFucked = 200;
+		timeToStayFucked = 100;
 	}
 	
 	function replaceChar(str, newChar, index) {
@@ -104,6 +106,12 @@ jQuery(document).ready(function($) {
 			$('body').css({transition: 'background-color ' + (degreeOfFuckedness * 2) + 's, color ' + (degreeOfFuckedness / 10) + 's', backgroundColor: '#000', color: '#FFF'});
 		}, timeToStayFucked * 2);
 	}
+	
+	$(window).scroll(function() {
+		scrollPercent = ($(this).scrollTop()) / ($(document).height() - $(this).height());
+		scrollPercent = Math.max(0, scrollPercent);
+		scrollPercent = Math.min(1, scrollPercent);
+	});
 
 });//end onload
 
@@ -118,7 +126,11 @@ function Everfalling(options) {
 		var w = h = Math.min(100, rand(10 * degreeOfBkgFuckedness) + 1.5);
 		var x = rand(100) - w / 2;
 		var y = rand($(document).height() / $(window).width() * 100) - h / 2;
-		var lifespan = rand(10 * degreeOfBkgFuckedness) + 1;
+		//the lower on the page, the more fucked
+		var percentY = this.vw_to_px(y) / $(document).height();
+		w *= (percentY + 1);
+		h = w;
+		var lifespan = rand(10 * degreeOfBkgFuckedness * (percentY + 1)) + 1;
 		var opacity = Math.random() * this.dustOpacity;
 		var d = new this.Dust({x:x, y:y, w:w, h:h, lifespan:lifespan, opacity:opacity}, this.self);
 		this.dustBowl.push(d);
@@ -166,7 +178,6 @@ function Everfalling(options) {
 					if (fx.prop == 'top') {
 						w = endW ? 1 : 1 - fx.pos;
 						h = endH ? 1 : 1 - fx.pos;
-						$c(fx.pos);
 						rot = $(this).data('rotation');
 						$(this).transform('scale(' + w + ',' + h + ') rotate(' + rot + 'deg)');
 					}
