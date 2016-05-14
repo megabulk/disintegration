@@ -143,12 +143,25 @@ function Everfalling(options) {
 		this.parent = parent;
 		this.id = this.parent.dustBowl.length;
 		
-		this.disappear = function() {
+		this.disappearFade = function() {
 			this.div.fadeOut(Math.floor(Math.random() * 3000) + 1000, function(dust) {
 				$(this).remove();
 				dust.parent.removeDust(dust);
 			}(this));
 		}
+		
+		this.disappearShrink = function() {
+			this.div.animate({width: 0, height: 0, left: this.settings.x + (this.settings.w / 2) + 'vw', top: this.settings.y + (this.settings.h / 2) + 'vw'}, {
+			}, Math.floor(Math.random() * 3000 * degreeOfBkgFuckedness) + 1000, function(dust) {
+				$(this).remove();
+				dust.parent.removeDust(dust);
+			}(this));
+		}
+		
+		this.disappearances = [
+			this.disappearFade,
+			this.disappearShrink
+		];
 		
 		this.icons = ['dustmote.svg', 'child.svg', 'mickey.svg', 'widget.svg', 'spiral.svg'];
 
@@ -160,7 +173,7 @@ function Everfalling(options) {
 			bkg: 'url(images/' + this.icons[Math.floor(Math.random() * this.icons.length)] + ')',
 			lifespan: 3,
 			opacity: .5,
-			death: this.disappear,
+			death: this.disappearances[Math.floor(Math.random() * this.disappearances.length)],
 		}
 	
 		if (options) {
