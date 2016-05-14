@@ -33,6 +33,12 @@ p {
 	overflow: hidden;
 }
 
+#morelink {
+	color: #FFF;
+	display: inline-block;
+	padding: 1vw 1vw 1vw 0
+}
+
 /*DUST*/
 .dust {
 	position: absolute;

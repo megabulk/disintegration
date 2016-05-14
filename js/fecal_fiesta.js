@@ -110,6 +110,14 @@ jQuery(document).ready(function($) {
 		}, timeToStayFucked * 2);
 	}
 	
+	$('#morelink').mouseover(function() {
+		$('#content, #dustholder').css('visibility', 'hidden');
+	});
+	
+	$('#morelink').mouseout(function() {
+		$('#content, #dustholder').css('visibility', 'visible');
+	});
+	
 	$(window).scroll(function() {
 		scrollPercent = ($(this).scrollTop()) / ($(document).height() - $(this).height());
 		scrollPercent = Math.max(0, scrollPercent);
