@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1"
+	 id="svg2" sodipodi:docname="barcode_code128.svg" inkscape:version="0.48.4 r9939" xmlns:svg="http://www.w3.org/2000/svg" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cc="http://creativecommons.org/ns#" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:dc="http://purl.org/dc/elements/1.1/"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="400px" height="222.789px"
+	 viewBox="0 0 400 222.789" enable-background="new 0 0 400 222.789" xml:space="preserve">
+<sodipodi:namedview  inkscape:window-x="729" fit-margin-right="0" inkscape:current-layer="svg2" inkscape:window-height="873" inkscape:window-width="798" inkscape:window-maximized="0" inkscape:pageopacity="0.0" inkscape:window-y="61" inkscape:document-units="px" inkscape:pageshadow="2" fit-margin-bottom="0" pagecolor="#ffffff" fit-margin-left="0" borderopacity="1.0" inkscape:cx="140.43121" bordercolor="#666666" showgrid="false" fit-margin-top="0" inkscape:cy="141.20825" inkscape:zoom="2.8401997" id="base">
+	</sodipodi:namedview>
+<title  id="title4066">barcode code128</title>
+<g id="layer1" transform="translate(2043.7956,-456.49609)" inkscape:groupmode="layer" inkscape:label="Layer 1">
+</g>
+<g id="barcode" transform="matrix(4.4444444,0,0,4.4444444,-284.44444,13.333333)">
+	<rect id="barcode_bar1" x="64" y="-3" fill="#FFFFFF" width="2" height="40"/>
+	<rect id="barcode_bar3" x="67" y="-3" fill="#FFFFFF" width="1" height="40"/>
+	<rect id="barcode_bar5" x="70" y="-3" fill="#FFFFFF" width="3" height="40"/>
+	<rect id="barcode_bar7" x="75" y="-3" fill="#FFFFFF" width="1" height="40"/>
+	<rect id="barcode_bar9" x="77" y="-3" fill="#FFFFFF" width="2" height="40"/>
+	<rect id="barcode_bar11" x="81" y="-3" fill="#FFFFFF" width="3" height="40"/>
+	<rect id="barcode_bar13" x="86" y="-3" fill="#FFFFFF" width="1" height="40"/>
+	<rect id="barcode_bar15" x="90" y="-3" fill="#FFFFFF" width="1" height="40"/>
+	<rect id="barcode_bar17" x="92" y="-3" fill="#FFFFFF" width="2" height="40"/>
+	<rect id="barcode_bar19" x="97" y="-3" fill="#FFFFFF" width="3" height="40"/>
+	<rect id="barcode_bar21" x="103" y="-3" fill="#FFFFFF" width="1" height="40"/>
+	<rect id="barcode_bar23" x="105" y="-3" fill="#FFFFFF" width="2" height="40"/>
+	<rect id="barcode_bar25" x="108" y="-3" fill="#FFFFFF" width="2" height="40"/>
+	<rect id="barcode_bar27" x="114" y="-3" fill="#FFFFFF" width="1" height="40"/>
+	<rect id="barcode_bar29" x="116" y="-3" fill="#FFFFFF" width="1" height="40"/>
+	<rect id="barcode_bar31" x="119" y="-3" fill="#FFFFFF" width="2" height="40"/>
+	<rect id="barcode_bar33" x="122" y="-3" fill="#FFFFFF" width="4" height="40"/>
+	<rect id="barcode_bar35" x="127" y="-3" fill="#FFFFFF" width="2" height="40"/>
+	<rect id="barcode_bar37" x="130" y="-3" fill="#FFFFFF" width="1" height="40"/>
+	<rect id="barcode_bar39" x="133" y="-3" fill="#FFFFFF" width="4" height="40"/>
+	<rect id="barcode_bar41" x="139" y="-3" fill="#FFFFFF" width="1" height="40"/>
+	<rect id="barcode_bar43" x="141" y="-3" fill="#FFFFFF" width="2" height="40"/>
+	<rect id="barcode_bar45" x="146" y="-3" fill="#FFFFFF" width="3" height="40"/>
+	<rect id="barcode_bar47" x="150" y="-3" fill="#FFFFFF" width="1" height="40"/>
+	<rect id="barcode_bar49" x="152" y="-3" fill="#FFFFFF" width="2" height="40"/>
+	<g enable-background="new    ">
+		<path fill="#FFFFFF" d="M81.163,46.1v-1.818c0-0.261,0.117-0.45,0.45-0.45s0.45,0.189,0.45,0.45v2.268
+			c0,0.324-0.216,0.45-0.45,0.45h-3.545c-0.234,0-0.45-0.126-0.45-0.45s0.216-0.45,0.45-0.45h1.323v-5.201h-1.323
+			c-0.234,0-0.45-0.126-0.45-0.45s0.216-0.45,0.45-0.45h2.223V46.1H81.163z"/>
+		<path fill="#FFFFFF" d="M84.997,46.1h3.096c0.234,0,0.45,0.126,0.45,0.45S88.327,47,88.093,47h-3.995v-2.934
+			c0-0.675,0.342-1.017,1.017-1.017h2.529v-2.15h-3.095c-0.234,0-0.45-0.126-0.45-0.45s0.216-0.45,0.45-0.45h2.988
+			c0.297,0,0.504,0.045,0.729,0.252c0.252,0.234,0.279,0.477,0.279,0.801v1.845c0,0.324-0.027,0.567-0.279,0.801
+			c-0.225,0.207-0.432,0.252-0.729,0.252h-2.538v2.15H84.997z"/>
+		<path fill="#FFFFFF" d="M91.027,40.899c-0.234,0-0.45-0.126-0.45-0.45s0.216-0.45,0.45-0.45h3.095c0.513,0,0.9,0.387,0.9,0.9
+			v1.728c0,0.36-0.072,0.621-0.351,0.873c0.279,0.252,0.351,0.513,0.351,0.873V46.1c0,0.513-0.387,0.9-0.9,0.9h-3.095
+			c-0.234,0-0.45-0.126-0.45-0.45s0.216-0.45,0.45-0.45h3.095v-1.494c0-0.504-0.198-0.657-0.45-0.657h-1.764
+			c-0.234,0-0.45-0.126-0.45-0.45s0.216-0.45,0.45-0.45h1.764c0.252,0,0.45-0.153,0.45-0.657v-1.494h-3.095V40.899z"/>
+		<path fill="#FFFFFF" d="M100.153,43.814v-2.6c0-0.225,0.108-0.45,0.45-0.45c0.342,0,0.45,0.225,0.45,0.45v2.6
+			c0.234,0,0.45,0.126,0.45,0.45s-0.216,0.45-0.45,0.45v1.836c0,0.288-0.126,0.45-0.45,0.45s-0.45-0.162-0.45-0.45v-1.836h-2.646
+			v-4.265c0-0.225,0.108-0.45,0.45-0.45c0.342,0,0.45,0.225,0.45,0.45v3.365L100.153,43.814L100.153,43.814z"/>
+		<path fill="#FFFFFF" d="M105.328,43.05h1.656c0.288,0,0.504,0.045,0.72,0.252c0.252,0.234,0.279,0.45,0.279,0.765v1.926
+			c0,0.279-0.027,0.477-0.216,0.702c-0.225,0.27-0.459,0.306-0.783,0.306h-1.998c-0.234,0-0.369-0.063-0.594-0.162l-0.342-0.153
+			c-0.243-0.108-0.513-0.189-0.513-0.504c0-0.234,0.198-0.45,0.432-0.45c0.108,0,0.189,0.027,0.288,0.072l0.27,0.117
+			c0.126,0.054,0.333,0.18,0.477,0.18h2.079v-2.15h-2.655v-3.95h3.105c0.234,0,0.45,0.126,0.45,0.45s-0.216,0.45-0.45,0.45h-2.205
+			L105.328,43.05L105.328,43.05z"/>
+		<path fill="#FFFFFF" d="M110.917,43.814h3.005c0.45,0,0.54,0.189,0.54,0.603v2.016c0,0.423-0.18,0.567-0.585,0.567h-3.275
+			c-0.423,0-0.585-0.153-0.585-0.567v-5.984c0-0.207,0.072-0.45,0.387-0.45h0.54c0.234,0,0.423,0.216,0.423,0.45
+			c0,0.27-0.189,0.45-0.45,0.45V43.814z M110.917,44.714V46.1h2.646v-1.386L110.917,44.714L110.917,44.714z"/>
+		<path fill="#FFFFFF" d="M117.397,40.899c0,0.198-0.162,0.45-0.45,0.45c-0.288,0-0.45-0.252-0.45-0.45v-0.45
+			c0-0.198,0.162-0.45,0.45-0.45h3.995v2.61c0,0.315,0.009,0.351-0.243,0.567l-1.26,1.089c-0.234,0.207-0.252,0.225-0.252,0.54
+			v1.746c0,0.288-0.126,0.45-0.45,0.45s-0.45-0.162-0.45-0.45v-2.169c0-0.297,0.009-0.324,0.234-0.522l1.242-1.071
+			c0.297-0.261,0.279-0.252,0.279-0.648v-1.242L117.397,40.899L117.397,40.899z"/>
+		<path fill="#FFFFFF" d="M126.072,39.999c0.306,0,0.45,0.216,0.45,0.45v2.6c0.279,0,0.495,0.099,0.657,0.252
+			c0.162,0.153,0.243,0.378,0.243,0.657V46.1c0,0.549-0.342,0.9-0.9,0.9h-2.646c-0.558,0-0.9-0.351-0.9-0.9v-2.141
+			c0-0.279,0.081-0.504,0.243-0.657s0.378-0.252,0.657-0.252v-2.6c0-0.234,0.144-0.45,0.45-0.45L126.072,39.999L126.072,39.999z
+			 M126.522,46.1v-2.15h-2.646v2.15H126.522z M125.622,43.05V40.9h-0.846v2.15H125.622z"/>
+		<path fill="#FFFFFF" d="M133.002,43.203h-3.096c-0.252,0-0.45-0.216-0.45-0.45v-2.304c0-0.234,0.198-0.45,0.45-0.45h3.546
+			c0.252,0,0.45,0.216,0.45,0.45v6.101c0,0.243-0.18,0.45-0.45,0.45h-0.45c-0.27,0-0.45-0.207-0.45-0.45
+			c0-0.27,0.189-0.45,0.45-0.45L133.002,43.203L133.002,43.203z M133.002,42.303v-1.404h-2.646v1.404H133.002z"/>
+		<path fill="#FFFFFF" d="M139.482,39.999c0.495,0,0.9,0.405,0.9,0.9V46.1c0,0.504-0.387,0.9-0.9,0.9h-2.646
+			c-0.513,0-0.9-0.396-0.9-0.9v-5.201c0-0.495,0.405-0.9,0.9-0.9L139.482,39.999L139.482,39.999z M139.482,46.1v-5.201h-2.646V46.1
+			H139.482z"/>
+	</g>
+</g>
+</svg>

@@ -197,7 +197,7 @@ function Everfalling(options) {
 			this.disappearSquish,
 		];
 		
-		this.icons = ['dustmote.svg', 'child.svg', 'mickey.svg', 'widget.svg', 'spiral.svg'];
+		this.icons = ['dustmote.svg', 'child.svg', 'mickey.svg', 'widget.svg', 'flag.svg', 'star.svg', 'black_sun.svg', 'barcode.svg',];
 
 		this.settings = {
 			x: 0,
