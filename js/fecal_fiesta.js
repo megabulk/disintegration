@@ -85,7 +85,7 @@ jQuery(document).ready(function($) {
 		newStr = str.substr(0, index) + newChar + str.substr(index + 1);
 		return newStr;
 	}
-	
+		
 	setTimeout(function() {
 		setInterval(function() {
 			dust.makeDust();
@@ -126,7 +126,7 @@ function Everfalling(options) {
 	this.dustOpacity = .3;
 	
 	this.makeDust = function() {
-		var w = h = Math.min(100, rand(10 * degreeOfBkgFuckedness) + 1.5);
+		var w = h = Math.min(80, rand(10 * degreeOfBkgFuckedness) + 1.5);
 		var x = rand(100) - w / 2;
 		var y = rand($(document).height() / $(window).width() * 100) - h / 2;
 		//the lower on the page, the more fucked
@@ -152,6 +152,7 @@ function Everfalling(options) {
 		this.disappearFade = function() {
 			this.div.fadeOut(rand(3000) + 1000, function(dust) {
 				$(this).remove();
+				clearInterval(dust.spinTimer);
 				dust.parent.removeDust(dust);
 			}(this));
 		}
@@ -162,6 +163,7 @@ function Everfalling(options) {
 			this.div.animate({backgroundSize: "0%", left: centerX + 'vw', top: centerY + 'vw'}, {
 			}, rand(3000 * degreeOfBkgFuckedness) + 1000, function(dust) {
 				$(this).remove();
+				clearInterval(dust.spinTimer);
 				dust.parent.removeDust(dust);
 			}(this));
 		}
@@ -187,6 +189,7 @@ function Everfalling(options) {
 				}
 			}, rand(3000 * degreeOfBkgFuckedness) + 1000, function(dust) {
 				$(this).remove();
+				clearInterval(dust.spinTimer);
 				dust.parent.removeDust(dust);
 			}(this));
 		}
@@ -197,6 +200,15 @@ function Everfalling(options) {
 			this.disappearSquish,
 		];
 		
+		this.spinMe = function() {
+			this.spinTimer = setInterval(function(self) {
+				direction = self.settings.spin_direction ? 1 : -1;
+				rotation = self.div.data('rotation') + .3 * direction;
+				self.div.rotate(rotation);
+				self.div.data('rotation', rotation);
+			}, 100, this);
+		};
+
 		this.icons = ['dustmote.svg', 'child.svg', 'mickey.svg', 'widget.svg', 'flag.svg', 'star.svg', 'black_sun.svg', 'barcode.svg',];
 
 		this.settings = {
@@ -208,6 +220,8 @@ function Everfalling(options) {
 			lifespan: 3,
 			opacity: .5,
 			death: this.disappearances[rand(this.disappearances.length)],
+			spinning: rand(100) > 80,
+			spin_direction: rand(2)
 		}
 	
 		if (options) {
@@ -224,7 +238,10 @@ function Everfalling(options) {
 		}).appendTo('#dustholder');
 		rotation = rand(360);
 		this.div.rotate(rotation).data('rotation', rotation);
-
+		if (this.settings.spinning) {
+			this.spinMe();
+		}
+		
 		setTimeout(this.settings.death.bind(this), this.settings.lifespan * 1000);
 	}
 

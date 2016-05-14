@@ -38,7 +38,7 @@ p {
 	position: absolute;
 	z-index: -1;
 	background-size: 100%;
-	background-repeat: no-repeat
+	background-repeat: no-repeat;
 }
 
 @media (min-width: 800px) {
