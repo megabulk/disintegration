@@ -111,7 +111,6 @@ jQuery(document).ready(function($) {
 		scrollPercent = ($(this).scrollTop()) / ($(document).height() - $(this).height());
 		scrollPercent = Math.max(0, scrollPercent);
 		scrollPercent = Math.min(1, scrollPercent);
-		$c(scrollPercent);
 	});
 
 });//end onload
