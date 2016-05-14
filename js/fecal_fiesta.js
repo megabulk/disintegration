@@ -1,14 +1,11 @@
-var treeWalker, nodeArray = [], nodeArrayOriginalText = [], nodeArrayOriginalTextPure = [], charCount = 0, fuckedCounter, secondsPerLetter = .01, fuckRate, timeToStayFucked = 100, charsReplaced = 0, degreeOfFuckedness = degreeOfBkgFuckedness = 1, docH;
+var treeWalker, nodeArray = [], nodeArrayOriginalText = [], nodeArrayOriginalTextPure = [], charCount = 0, fuckedCounter, secondsPerLetter = .01, fuckRate, timeToStayFucked = 100, charsReplaced = 0, degreeOfFuckedness = degreeOfBkgFuckedness = 1;
 var regex = /^\s+$/;
 var chars = "0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ®†¥©ßåœ™¢§¶Æ¯ÂÇßå[]";
 
 jQuery(document).ready(function($) {
 
-	docH = $(document).height();
-
 	var dust = new Everfalling();
 	
-
 	init();
 
 	function init() {
@@ -37,13 +34,13 @@ jQuery(document).ready(function($) {
 					return function() {
 						fuck_unfuck(i, j, true);
 					}
-				}(i, j), Math.floor(Math.random() * fuckRate));
+				}(i, j), rand(fuckRate));
 			}
 		}
 	}
 	
 	function fuck_unfuck(nodeToFuck, charToFuck, fuckMe) {
-		var rndChar = chars.substr( Math.floor(Math.random() * chars.length - 1), 1);
+		var rndChar = chars.substr( rand(chars.length - 1), 1);
 		if (fuckMe === true) {
 			fuckedCounter++;
 			if (nodeArray[nodeToFuck].nodeValue.charAt(charToFuck) == ' ') {
@@ -89,7 +86,7 @@ jQuery(document).ready(function($) {
 			dust.makeDust();
 		}, 100);
 	}, fuckRate * 1.2);
-	
+
 	function increaseTheFuck() {
 		initTextFuck();
 		degreeOfFuckedness *= 1.1;
@@ -98,7 +95,7 @@ jQuery(document).ready(function($) {
 			timeToStayFucked *= degreeOfFuckedness;
 		}
 		dust.dustOpacity = Math.min(dust.dustOpacity * degreeOfBkgFuckedness, 1);
-		var bkgIntensity = Math.min(Math.floor(Math.random() * 255 * (degreeOfBkgFuckedness - 1)), 255);
+		var bkgIntensity = Math.min(rand(255 * (degreeOfBkgFuckedness - 1)), 255);
 		var r = Math.round(Math.random()) * 255;
 		var g = Math.round(Math.random()) * 255;
 		var b = Math.round(Math.random()) * 255;
@@ -115,23 +112,17 @@ jQuery(document).ready(function($) {
 function Everfalling(options) {
 	this.dustBowl = [];
 	this.self = this;
-	this.winW = $(window).width();
 	this.dustOpacity = .3;
 	
 	this.makeDust = function() {
-		var w = h = Math.min(100, Math.floor(Math.random() * 10 * degreeOfBkgFuckedness) + 1);
-		var x = Math.floor(Math.random() * (100 - w));
-		var y = Math.floor(Math.random() * (docH / this.winW * 100) - h);
-		var lifespan = Math.floor(Math.random() * 10 * degreeOfBkgFuckedness) + 1;
+		var w = h = Math.min(100, rand(10 * degreeOfBkgFuckedness) + 1.5);
+		var x = rand(100) - w / 2;
+		var y = rand($(document).height() / $(window).width() * 100) - h / 2;
+		var lifespan = rand(10 * degreeOfBkgFuckedness) + 1;
 		var opacity = Math.random() * this.dustOpacity;
 		var d = new this.Dust({x:x, y:y, w:w, h:h, lifespan:lifespan, opacity:opacity}, this.self);
 		this.dustBowl.push(d);
 	}
-	
-	$(window).resize($.proxy(function() {
-		//docH = $(document).height();
-		this.winW = $(window).width();
-	}, this.self));
 	
 	this.removeDust = function(mote) {
 		this.dustBowl = $.grep(this.dustBowl, function(e){ 
@@ -144,15 +135,43 @@ function Everfalling(options) {
 		this.id = this.parent.dustBowl.length;
 		
 		this.disappearFade = function() {
-			this.div.fadeOut(Math.floor(Math.random() * 3000) + 1000, function(dust) {
+			this.div.fadeOut(rand(3000) + 1000, function(dust) {
 				$(this).remove();
 				dust.parent.removeDust(dust);
 			}(this));
 		}
 		
 		this.disappearShrink = function() {
-			this.div.animate({width: 0, height: 0, left: this.settings.x + (this.settings.w / 2) + 'vw', top: this.settings.y + (this.settings.h / 2) + 'vw'}, {
-			}, Math.floor(Math.random() * 3000 * degreeOfBkgFuckedness) + 1000, function(dust) {
+			var centerX = this.settings.x + rand(this.settings.w);
+			var centerY = this.settings.y + rand(this.settings.h);
+			this.div.animate({backgroundSize: "0%", left: centerX + 'vw', top: centerY + 'vw'}, {
+			}, rand(3000 * degreeOfBkgFuckedness) + 1000, function(dust) {
+				$(this).remove();
+				dust.parent.removeDust(dust);
+			}(this));
+		}
+		
+		this.disappearSquish = function() {
+			var centerX = this.settings.x + rand(this.settings.w);
+			var centerY = this.settings.y + rand(this.settings.h);
+			if (rand(2)) {
+				endW = 1;
+				endH = 0;
+			} else {
+				endW = 0;
+				endH = 1;
+			}
+			this.div.animate({left: centerX + 'vw', top: centerY + 'vw'}, {
+				step: function(now, fx) {
+					if (fx.prop == 'top') {
+						w = endW ? 1 : 1 - fx.pos;
+						h = endH ? 1 : 1 - fx.pos;
+						$c(fx.pos);
+						rot = $(this).data('rotation');
+						$(this).transform('scale(' + w + ',' + h + ') rotate(' + rot + 'deg)');
+					}
+				}
+			}, rand(3000 * degreeOfBkgFuckedness) + 1000, function(dust) {
 				$(this).remove();
 				dust.parent.removeDust(dust);
 			}(this));
@@ -160,7 +179,8 @@ function Everfalling(options) {
 		
 		this.disappearances = [
 			this.disappearFade,
-			this.disappearShrink
+			this.disappearShrink,
+			this.disappearSquish,
 		];
 		
 		this.icons = ['dustmote.svg', 'child.svg', 'mickey.svg', 'widget.svg', 'spiral.svg'];
@@ -170,10 +190,10 @@ function Everfalling(options) {
 			y: 0,
 			w: 10,
 			h: 10,
-			bkg: 'url(images/' + this.icons[Math.floor(Math.random() * this.icons.length)] + ')',
+			bkg: 'url(images/' + this.icons[rand(this.icons.length)] + ')',
 			lifespan: 3,
 			opacity: .5,
-			death: this.disappearances[Math.floor(Math.random() * this.disappearances.length)],
+			death: this.disappearances[rand(this.disappearances.length)],
 		}
 	
 		if (options) {
@@ -187,8 +207,9 @@ function Everfalling(options) {
 			height: this.settings.h + 'vw',
 			opacity: this.settings.opacity,
 			'background-image': this.settings.bkg,
-		}).appendTo('#content');
-		this.div.rotate(Math.floor(Math.random() * 360));
+		}).appendTo('#dustholder');
+		rotation = rand(360);
+		this.div.rotate(rotation).data('rotation', rotation);
 
 		setTimeout(this.settings.death.bind(this), this.settings.lifespan * 1000);
 	}
@@ -200,6 +221,7 @@ function Everfalling(options) {
 	this.vw_to_px = function(vw) {
 		return vw / 100 * $(window).width();
 	}
+	
 }
 
 
@@ -207,10 +229,22 @@ function $c(x) {
 	console.log(x);
 }
 
+function rand(limit) {
+	return Math.floor(Math.random() * limit);
+}
+
 jQuery.fn.rotate = function(degrees) {
     $(this).css({'-webkit-transform' : 'rotate('+ degrees +'deg)',
                  '-moz-transform' : 'rotate('+ degrees +'deg)',
                  '-ms-transform' : 'rotate('+ degrees +'deg)',
                  'transform' : 'rotate('+ degrees +'deg)'});
+    return $(this);
+};
+
+jQuery.fn.transform = function(transform) {
+    $(this).css({'-webkit-transform' : transform,
+                 '-moz-transform' : transform,
+                 '-ms-transform' : transform,
+                 'transform' : transform});
     return $(this);
 };

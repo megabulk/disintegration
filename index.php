@@ -76,8 +76,9 @@
 <p>Jonx was dead.</p>
 </div>
 
-<div class="nofuck"><a target="_blank" style="color: #FFF;" href="http://www.whiskeytit.com/books/postal-child">More ></a></div>
+<div id="dustholder"></div>
 
+<div class="nofuck"><a target="_blank" style="color: #FFF;" href="http://www.whiskeytit.com/books/postal-child">More ></a></div>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

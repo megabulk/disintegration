@@ -1,29 +1,36 @@
 html {
-	margin: 0
-	padding: 0
+	margin: 0;
+	padding: 0;
 }
 
 body {
 	font-family:monospace;
 	font-size:3.3vw;
+	margin: 0;
 	padding:10vw;
 	background:#000;
 	color:#FFF;
-	overflow-x: hidden;
+	position: relative;
 }
 
 p {
 	line-height:1.5;
 }
 
-#content {
-	overflow-x: hidden;
-}
-
 .nofuck {
 	display: inline-block;
-	background-color: rgba(0,0,0,.7);
+	background-color: rgba(0,0,0,.5);
 	padding: 2px;
+}
+
+#dustholder {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
+	overflow: hidden;
 }
 
 /*DUST*/
