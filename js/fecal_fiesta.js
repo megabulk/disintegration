@@ -97,7 +97,13 @@ jQuery(document).ready(function($) {
 		initTextFuck();
 		degreeOfFuckedness *= 1.1;
 		degreeOfBkgFuckedness *= 1.1;
-		if (degreeOfBkgFuckedness > 20) {
+		//this is NOT good garbage collection. Fix the removal of divs after they expire.
+		if (Math.floor(degreeOfBkgFuckedness) % 3) {
+			$('.dust').fadeOut(1000, function() {
+				$(this).remove();
+			});
+		}
+		if (degreeOfBkgFuckedness > 15) {
 			degreeOfBkgFuckedness = 1;
 		}
 		if (timeToStayFucked < fuckRate - 2000) {
@@ -236,7 +242,7 @@ function Everfalling(options) {
 			spin_direction: rand(2)
 		}
 		
-		if (rand(degreeOfBkgFuckedness) > 6) {
+		if (Math.random() * degreeOfBkgFuckedness > 3) {
 			this.settings.bkg += '_black';
 		}
 	
