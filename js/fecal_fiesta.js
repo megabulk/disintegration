@@ -48,7 +48,8 @@ jQuery(document).ready(function($) {
 		var charPercent = charPos / charCount;
 		if (fuckMe === true) {
 			fuckedCounter++;
-			if (nodeArray[nodeToFuck].nodeValue.charAt(charToFuck) == ' ') {
+			char = nodeArray[nodeToFuck].nodeValue.charAt(charToFuck);
+			if (char == ' ' || char.match(/\r\n|\r|\n/g)) {
 				return;
 			}
 			newChar = rndChar;
