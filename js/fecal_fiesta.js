@@ -1,4 +1,4 @@
-var treeWalker, nodeArray = [], nodeArrayOriginalText = [], nodeArrayOriginalTextPure = [], nodeArrayCharCounts = [], charCount = 0, fuckedCounter, secondsPerLetter = .01, fuckRate, timeToStayFucked = 100, charsReplaced = 0, degreeOfFuckedness = degreeOfBkgFuckedness = 1, scrollPercent = 0;
+var treeWalker, nodeArray = [], nodeArrayOriginalText = [], nodeArrayOriginalTextPure = [], nodeArrayCharCounts = [], charCount = 0, fuckedCounter, secondsPerLetter = .001, fuckRate, timeToStayFucked = 100, charsReplaced = 0, degreeOfFuckedness = degreeOfBkgFuckedness = 1, scrollPercent = 0;
 var regex = /^\s+$/;
 var chars = "0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ®†¥©ßåœ™¢§¶Æ¯ÂÇßå[]";
 
@@ -97,6 +97,9 @@ jQuery(document).ready(function($) {
 		initTextFuck();
 		degreeOfFuckedness *= 1.1;
 		degreeOfBkgFuckedness *= 1.1;
+		if (degreeOfBkgFuckedness > 20) {
+			degreeOfBkgFuckedness = 1;
+		}
 		if (timeToStayFucked < fuckRate - 2000) {
 			timeToStayFucked *= degreeOfFuckedness;
 		}
@@ -218,19 +221,23 @@ function Everfalling(options) {
 			}, 100, this);
 		};
 
-		this.icons = ['dustmote.svg', 'child.svg', 'mickey.svg', 'widget.svg', 'flag.svg', 'star.svg', 'black_sun.svg', 'barcode.svg',];
+		this.icons = ['dustmote', 'child', 'mickey', 'widget', 'flag', 'star', 'black_sun', 'barcode',];
 
 		this.settings = {
 			x: 0,
 			y: 0,
 			w: 10,
 			h: 10,
-			bkg: 'url(images/' + this.icons[rand(this.icons.length)] + ')',
+			bkg: this.icons[rand(this.icons.length)],
 			lifespan: 3,
 			opacity: .5,
 			death: this.disappearances[rand(this.disappearances.length)],
 			spinning: rand(100) > 80,
 			spin_direction: rand(2)
+		}
+		
+		if (rand(degreeOfBkgFuckedness) > 6) {
+			this.settings.bkg += '_black';
 		}
 	
 		if (options) {
@@ -243,7 +250,7 @@ function Everfalling(options) {
 			width: this.settings.w + 'vw',
 			height: this.settings.h + 'vw',
 			opacity: this.settings.opacity,
-			'background-image': this.settings.bkg,
+			'background-image': 'url(images/' + this.settings.bkg + '.svg)',
 		}).appendTo('#dustholder');
 		rotation = rand(360);
 		this.div.rotate(rotation).data('rotation', rotation);
