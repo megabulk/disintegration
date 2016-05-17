@@ -1,12 +1,19 @@
-var treeWalker, nodeArray = [], nodeArrayOriginalText = [], nodeArrayOriginalTextPure = [], nodeArrayCharCounts = [], charCount = 0, fuckedCounter, secondsPerLetter = .01, fuckRate, timeToStayFucked = 100, charsReplaced = 0, degreeOfFuckedness = degreeOfBkgFuckedness = 1, scrollPercent = 0;
+var treeWalker, nodeArray = [], nodeArrayOriginalText = [], nodeArrayOriginalTextPure = [], nodeArrayCharCounts = [], charCount = 0, fuckedCounter, secondsPerLetter = .01, fuckRate, timeToStayFucked = 100, charsReplaced = 0, degreeOfFuckedness = degreeOfBkgFuckedness = 1, scrollPercent = 0, maximumDust;
 var regex = /^\s+$/;
 var chars = "0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ®†¥©ßåœ™¢§¶Æ¯ÂÇßå[]";
 
 jQuery(document).ready(function($) {
 
 	var dust = new Everfalling();
-	
-	init();
+
+	init();	
+
+	setTimeout(function() {
+		setInterval(function() {
+			dust.makeDust();
+		}, 100);
+	}, fuckRate * 1.2);
+
 
 	function init() {
 		var n;
@@ -23,6 +30,7 @@ jQuery(document).ready(function($) {
 		}
 				
 		fuckRate = charCount / 3 * secondsPerLetter * 1000;
+		maximumDust = charCount * .023;
 		
 		$(window).trigger('scroll');
 		
@@ -87,22 +95,10 @@ jQuery(document).ready(function($) {
 		return newStr;
 	}
 		
-	setTimeout(function() {
-		setInterval(function() {
-			dust.makeDust();
-		}, 100);
-	}, fuckRate * 1.2);
-
 	function increaseTheFuck() {
 		initTextFuck();
 		degreeOfFuckedness *= 1.1;
 		degreeOfBkgFuckedness *= 1.1;
-		//this is NOT good garbage collection. Fix the removal of divs after they expire.
-		if (Math.floor(degreeOfBkgFuckedness) % 3) {
-			$('.dust').fadeOut(1000, function() {
-				$(this).remove();
-			});
-		}
 		if (degreeOfBkgFuckedness > 15) {
 			degreeOfBkgFuckedness = 1;
 		}
@@ -120,14 +116,6 @@ jQuery(document).ready(function($) {
 		}, timeToStayFucked * 2);
 	}
 	
-	$('#morelink').mouseover(function() {
-		$('#content, #dustholder').css('visibility', 'hidden');
-	});
-	
-	$('#morelink').mouseout(function() {
-		$('#content, #dustholder').css('visibility', 'visible');
-	});
-	
 	$(window).scroll(function() {
 		scrollPercent = ($(this).scrollTop()) / ($(document).height() - $(this).height());
 		scrollPercent = Math.max(0, scrollPercent);
@@ -144,6 +132,9 @@ function Everfalling(options) {
 	this.dustOpacity = .3;
 	
 	this.makeDust = function() {
+		if (this.dustBowl.length > maximumDust) {
+			return;
+		}
 		var w = h = Math.min(80, rand(10 * degreeOfBkgFuckedness) + 1.5);
 		var x = rand(100) - w / 2;
 		var y = rand($(document).height() / $(window).width() * 100) - h / 2;
@@ -153,6 +144,7 @@ function Everfalling(options) {
 		h = w;
 		var lifespan = rand(10 * degreeOfBkgFuckedness * (percentY + 1)) + 1;
 		var opacity = Math.random() * this.dustOpacity;
+
 		var d = new this.Dust({x:x, y:y, w:w, h:h, lifespan:lifespan, opacity:opacity}, this.self);
 		this.dustBowl.push(d);
 	}
@@ -161,57 +153,65 @@ function Everfalling(options) {
 		this.dustBowl = $.grep(this.dustBowl, function(e){ 
 			return e.id != mote.id; 
 		});
+//		$c('id: ' + mote.id + " .dust:" + $('.dust').length + " dustBowl:" + this.dustBowl.length);
 	}
 	
 	this.Dust = function(options, parent) {
 		this.parent = parent;
-		this.id = this.parent.dustBowl.length;
+		this.id = Math.random().toString(36).slice(2);
 		
 		this.disappearFade = function() {
-			this.div.fadeOut(rand(3000) + 1000, function(dust) {
-				$(this).remove();
-				clearInterval(dust.spinTimer);
-				dust.parent.removeDust(dust);
-			}(this));
+			this.div.fadeOut({
+				duration: rand(3000 * degreeOfBkgFuckedness) + 1000,
+				complete: function() {
+					this.remove();
+				}.bind(this)
+			});
 		}
 		
 		this.disappearShrink = function() {
-			var centerX = this.settings.x + rand(this.settings.w);
-			var centerY = this.settings.y + rand(this.settings.h);
+			var centerX = this.settings.x - (this.settings.w / 2) + rand(this.settings.w);
+			var centerY = this.settings.y - (this.settings.h / 2) + rand(this.settings.h);
 			this.div.animate({backgroundSize: "0%", left: centerX + 'vw', top: centerY + 'vw'}, {
-			}, rand(3000 * degreeOfBkgFuckedness) + 1000, function(dust) {
-				$(this).remove();
-				clearInterval(dust.spinTimer);
-				dust.parent.removeDust(dust);
-			}(this));
+				duration: rand(3000 * degreeOfBkgFuckedness) + 1000,
+				complete: function() {
+					this.remove();
+				}.bind(this)
+			});
 		}
 		
 		this.disappearSquish = function() {
-			var centerX = this.settings.x + rand(this.settings.w);
-			var centerY = this.settings.y + rand(this.settings.h);
-			if (rand(2)) {
-				endW = 1;
-				endH = 0;
-			} else {
-				endW = 0;
-				endH = 1;
-			}
+			var centerX = this.settings.x - (this.settings.w / 2) + rand(this.settings.w);
+			var centerY = this.settings.y - (this.settings.h / 2) + rand(this.settings.h);
+			var squish = rand(2) ? 'h' : 'v';
+			clearInterval(this.spinTimer);//this doesn't go well with spinning
+			var rot = this.div.data('rotation');
+
 			this.div.animate({left: centerX + 'vw', top: centerY + 'vw'}, {
+				duration: rand(3000 * degreeOfBkgFuckedness) + 1000,
 				step: function(now, fx) {
 					if (fx.prop == 'top') {
-						w = endW ? 1 : 1 - fx.pos;
-						h = endH ? 1 : 1 - fx.pos;
-						rot = $(this).data('rotation');
+						w = h = 1;
+						if (squish == 'h') {
+							w = 1 - fx.pos;
+						} else {
+							h = 1 - fx.pos;
+						}
 						$(this).transform('scale(' + w + ',' + h + ') rotate(' + rot + 'deg)');
 					}
-				}
-			}, rand(3000 * degreeOfBkgFuckedness) + 1000, function(dust) {
-				$(this).remove();
-				clearInterval(dust.spinTimer);
-				dust.parent.removeDust(dust);
-			}(this));
+				},
+				complete: function() {
+					this.remove();
+				}.bind(this)
+			});
 		}
 		
+		this.remove = function() {
+			this.div.remove();
+			clearInterval(this.spinTimer);
+			this.parent.removeDust(this);
+		}
+
 		this.disappearances = [
 			this.disappearFade,
 			this.disappearShrink,
@@ -266,6 +266,7 @@ function Everfalling(options) {
 		
 		setTimeout(this.settings.death.bind(this), this.settings.lifespan * 1000);
 	}
+	
 
 	this.px_to_vw = function(px) {
 		return px / $(window).width() * 100;
