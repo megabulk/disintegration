@@ -37,7 +37,7 @@
 
 <p>“Them drugs at bitch?”</p>
 
-<p>Brandy elbowed her bag towards Jonx. It was next to her. On the couch. Jonx rifled through it. He took out what looked like a bunch of baking soda in the corner of a cheap sandwich bag tied off with a knot. This made Whitey think of baking. Of the tools bakers use to decorate cakes. Jonx tore the bag open with his teeth and dump the whole thing on the table. He took a card from Brandy’s bag and made two massive lines. He took a bill from his pocket and rolled it into a tube. He snorted both lines. He made two more massive lines. He handed the bill to Brandy. She snorted one of the lines. She handed the bill back to Jonx. He snorted the other line. Brandy said:</p>
+<p>Brandy elbowed her bag towards Jonx. It was next to her. On the couch. Jonx rifled through it. He took out what looked like a bunch of baking soda in the corner of a cheap sandwich bag tied off with a knot. This made Whitey think of baking. Of the tools bakers use to decorate cakes. Jonx tore the bag open with his teeth and dumped the whole thing on the table. He took a card from Brandy’s bag and made two massive lines. He took a bill from his pocket and rolled it into a tube. He snorted both lines. He made two more massive lines. He handed the bill to Brandy. She snorted one of the lines. She handed the bill back to Jonx. He snorted the other line. Brandy said:</p>
 
 <p>“Slow down baby, this is the good shit.”<br>
 “Fuck all, this shit is bunk.”<br>
